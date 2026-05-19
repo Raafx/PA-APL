@@ -267,16 +267,9 @@ int login_staff()
                             system("cls");
                             return id_staff;
                         }
-                        else if (item["status_terima"] == true && item["status_kerja"] == false)
-                        {
-                            cout << "[GAGAL] Anda Sudah Di Pecat Oleh Admin!!!" << endl;
-                            system("pause");
-                            system("cls");
-                            return 0;
-                        }
                         else
                         {
-                            cout << "[GAGAL] Login Gagal! Akun Anda belum disetujui oleh Admin!!!" << endl;
+                            cout << "[GAGAL] Login Gagal! Akun Anda Belum Terdata!!!" << endl;
                             system("pause");
                             system("cls");
                             return 0;

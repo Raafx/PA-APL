@@ -12,11 +12,12 @@ struct Kolam
     int kapasitas;
     int populasi_ikan;
     int total_mati;
-    int total_harga_benih;
-    int total_berat_kolam; // gram
-    int total_harga_pakan;
-    int total_modal;
+    double total_harga_benih;
+    double total_berat_kolam; // gram
+    double total_harga_pakan;
+    double total_modal;
     int umur_kolam;
+    int siklus_kolam;
 };
 
 struct Staff

@@ -1,16 +1,19 @@
 [
     {
-        "fase_kolam": "Remaja",
+        "fase_kolam": "Panen",
+        "hargaBenih": 0,
         "id": 1,
-        "kapasitas": 3000,
-        "populasi": 3000,
-        "status_kolam": "Terisi",
-        "tipe": "besar",
-        "total_berat_kolam": 150000,
-        "total_harga_benih": 3000000,
-        "total_harga_pakan": 225000,
+        "kapasitas": 1500,
+        "populasi": 0,
+        "siklus_kolam": 0,
+        "siklus_panen": 1,
+        "status_kolam": "Kosong",
+        "tipe": "sedang",
+        "total_berat_kolam": 210000.0,
+        "total_harga_benih": 0,
+        "total_harga_pakan": 0,
         "total_mati": 0,
-        "total_modal": 0,
-        "umur_kolam": 30
+        "total_modal": 0.0,
+        "umur_kolam": 95
     }
 ]

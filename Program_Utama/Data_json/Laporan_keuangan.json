@@ -1,3 +1,9 @@
 [
-    
+    {
+        "id_penjualan_kolam": 1,
+        "id_transaksi": 1,
+        "keterangan": "Panen Kolam ID 1 (Siklus 1)",
+        "pengeluaran": 4815000.0,
+        "untung_bersih": 2407500.0
+    }
 ]

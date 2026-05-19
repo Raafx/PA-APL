@@ -44,7 +44,7 @@ void tebar_pakan(int &id_staff)
 
     json kolamj = load_json(FILE_KOLAM, "[INFO] Belum Ada Kolam Yang Dibuat!!!");
     json staffj = load_json(FILE_STAFF, "[INFO] Belum Ada Staff Yang Terdaftar!!!");
-    json pakanj = load_json(FILE_PAKAN, "[INFO] Belum Stok Pakan yang Terdata!!!");
+    json pakanj = load_json(FILE_PAKAN, "");
 
     if (kolamj.empty() || staffj.empty() || pakanj.empty())
     {
@@ -79,7 +79,7 @@ void tebar_pakan(int &id_staff)
     }
 
     cout << "================================================================" << endl;
-    cout << "====================== DAFTAR KOLAM  ===========================" << endl;
+    cout << "======================= DAFTAR KOLAM ===========================" << endl;
     cout << "================================================================" << endl;
     cout << "ID\t| Tipe\t | Kapasitas\t| Populasi\t| Status\t|" << endl;
     cout << "----------------------------------------------------------------" << endl;
@@ -140,7 +140,8 @@ void tebar_pakan(int &id_staff)
     bool ditemukan = false;
     string hari, fase_kolam;
 
-    double interval_hari, total_pakan_perhari, total_harga_pakan, id_kolam_target, total_berat_kolam, populasi, total_pakan_interval;
+    double interval_hari, total_pakan_perhari, total_harga_pakan, total_berat_kolam, populasi, total_pakan_interval;
+    int id_kolam_target;
 
     for (auto &item : kolamj)
     {
@@ -267,6 +268,8 @@ void tebar_pakan(int &id_staff)
         fileOutLaporan << laporanj.dump(4);
         fileOutLaporan.close();
         
+        long long total_biaya = (long long) total_harga_pakan;
+
         cout << "\n[BERHASIL] Kolam Dengan ID " << id_kolam << " Telah Diberi Pakannya!!!!" << endl;
 
         cout << "\nBerikut Untuk Laporannya (Telah Tersimpan di Sistem): " << endl;
@@ -276,7 +279,7 @@ void tebar_pakan(int &id_staff)
         cout << "Kolam          : " << id_kolam_target << endl;
         cout << "Rentang Hari   : " << interval_hari << endl;
         cout << "Total Pakan    : " << total_pakan_interval << " gram" << endl;
-        cout << "Total Biaya    : " << total_harga_pakan << endl;
+        cout << "Total Biaya    : " << total_biaya << endl;
         cout << "Dicatat oleh   : " << usernameStaff << endl;
         cout << "ID Staff       : " << id_staff << endl;
         cout << "=================================" << endl;
@@ -333,7 +336,7 @@ void catatMortalitas(int &id_staff)
     for (const auto &item : kolamj)
     {
 
-        cout << item["id"] << "\t|" << item["tipe"] << " | " << item["kapasitas"] << "\t\t|" << item["populasi"] << "\t\t|" << item["status_kolam"] << "\t|" << endl;
+        cout << item["id"] << "\t|" << item["tipe"] << " | " << item["kapasitas"] << "\t|" << item["populasi"] << "\t\t|" << item["status_kolam"] << "\t|" << endl;
         cout << "----------------------------------------------------------------" << endl;
     }
 
@@ -517,12 +520,14 @@ void rekening_staff(int &id_staff)
         system("pause"); system("cls"); return;
     }
 
+    long long saldo = (long long) saldo_sekarang;
+
     cout << "=========================================================" << endl;
     cout << "                  INFORMASI REKENING STAFF               " << endl;
     cout << "=========================================================" << endl;
     cout << "Nama Staff    : " << nama_staff << endl;
     cout << "ID Staff      : " << id_staff << endl;
-    cout << "Total Saldo   : Rp " << saldo_sekarang << endl;
+    cout << "Total Saldo   : Rp " << saldo << endl;
     cout << "=========================================================" << endl;
     cout << "                     MUTASI RIWAYAT GAJI                 " << endl;
     cout << "---------------------------------------------------------" << endl;
